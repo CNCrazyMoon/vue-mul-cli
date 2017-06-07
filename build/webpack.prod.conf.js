@@ -9,6 +9,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var pageConfig = require('./pages.conf')
 
 var env = config.build.env
 
@@ -123,8 +124,9 @@ if (config.build.bundleAnalyzerReport) {
 Object.keys(entries).forEach(function(entry) {
     webpackConfig.plugins.push(new HtmlWebpackPlugin({
         // chunks: [ 'manifest', 'vendor', entry ],
-        chunks: ['vendor',entry ],
+        chunks: ['vendor',entry],
         filename: 'modules/' + entry + '.html',
+        title: pageConfig.title,
         template: 'src/template/index.html',
         inject: true,
         minify: false

@@ -6,6 +6,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var entries = require('./entries')
+var pageConfig = require('./pages.conf')
 
 
 var devWebpackConfig = merge(baseWebpackConfig, {
@@ -31,6 +32,7 @@ Object.keys(entries).forEach(function(entry) {
         new HtmlWebpackPlugin({
             chunks: ['vendor',entry],
             filename: entry + '.html',
+            title: pageConfig.title,
             template: 'src/template/index.html',
             inject: true
         })

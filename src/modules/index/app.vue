@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <h1>这里是index页面</h1>
-    <a href="./login.html">==>login</a>
+    <h1>index阿萨德客户</h1>
+    <a href="./login.html">==>index</a>
     <img src="../../assets/logo.png">
     <hello></hello>
+    <div class="k">
+      asdhjl
+    </div>
   </div>
 </template>
 
@@ -18,7 +21,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,7 +30,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.hello {
+.k {
   display: flex;
 }
 </style>
