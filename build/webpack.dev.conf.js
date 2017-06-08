@@ -9,6 +9,11 @@ var entries = require('./entries')
 var pageConfig = require('./pages.conf')
 
 
+// add hot-reload related code to entry chunks
+Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+})
+
 var devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
@@ -39,9 +44,5 @@ Object.keys(entries).forEach(function(entry) {
     )
 })
 
-// add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
 
 module.exports = devWebpackConfig
