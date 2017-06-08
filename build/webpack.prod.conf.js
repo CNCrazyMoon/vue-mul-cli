@@ -123,8 +123,8 @@ if (config.build.bundleAnalyzerReport) {
 
 Object.keys(entries).forEach(function(entry) {
     webpackConfig.plugins.push(new HtmlWebpackPlugin({
-        // chunks: [ 'manifest', 'vendor', entry ],
-        chunks: ['vendor',entry],
+        chunks: [ 'manifest', 'vendor', entry ],
+        // chunks: ['vendor',entry],
         filename: 'modules/' + entry + '.html',
         title: pageConfig.title,
         template: 'src/template/index.html',
