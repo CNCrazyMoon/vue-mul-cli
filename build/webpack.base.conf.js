@@ -27,6 +27,11 @@ var baseWebpackConfig = {
       '@components': resolve('src/components')
     }
   },
+  externals: {
+    //添加外部文件的引用 2017年6月9日17:04:58
+    'zepto': 'Zepto',
+    'mui': 'mui'
+  },
   module: {
     rules: [
       {

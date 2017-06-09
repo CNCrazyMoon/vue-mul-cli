@@ -2,6 +2,7 @@
   <div id="app">
     <h1>index阿萨德客户</h1>
     <a href="./login.html">==>index</a>
+    <a href="./main.html">==>main</a>
     <img src="../../assets/logo.png">
     <hello></hello>
     <div class="k">
