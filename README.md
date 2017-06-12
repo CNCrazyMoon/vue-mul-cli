@@ -28,13 +28,14 @@ npm run build --report
 - 增加`postcss` `autoprefix`支持,打包的样式文件会自动补全css
 - 增加页面`titile`的配置,参考`page.conf.js`
 - 支持 `hot-reload`,编辑器保存后浏览器自动刷新
+- 将必需的第三方基础类库挂载到template中
 
 其他内容后续补充
 
 ### 一些tips
 ~~在引入第三方库的时候,比如`UI组件库`等,个人觉得应该放在static中,避免重复编译,拖慢编译速度.~~
 
-实际上,如果将库文件放在`static`中,因为没有经过webpack处理,而是直接copy,可能会导致在dev环境中,无法使用库文件中的内容,比如,`jQuery`的代码无效
+~~实际上,如果将库文件放在`static`中,因为没有经过webpack处理,而是直接copy,可能会导致在dev环境中,无法使用库文件中的内容,比如,`jQuery`的代码无效(能解决)~~
 
 
 在vue-cli中引入图片不能正常显示?
@@ -87,6 +88,26 @@ new HtmlWebpackPlugin({
 import mui from 'mui'
 import zepto from 'zepto'
 ```
+### 自定义组件命名
+在`vue`中的自定义组件匹配策略的优先顺序从高到低为：原标签名、camelCase化的标签名、PascalCase化的标签名。
 
+例如 <my-component> 会依次匹配 my-component、myComponent、MyComponent。
+
+假设一个组件名为`<header-top>`,那么引入这个自定义组件的命名可以为:
+```js
+// 1.PascalCase风格
+import HeaderTop from '@components/Header'
+// 2.camelCase 风格
+import headerTop from '@components/Header'
+// 3. 原标签名风格
+import header-top from '@components/Header'
+```
+
+> 虽然三种都可以,但还是推荐统一一种风格
+
+### 引入MUI组件库的问题
+因为项目中需要使用到`mui.css`,结果在尝试引入`mui.css`时,`prod`环境编译异常,最终折中选择将其挂载到`template/index.html`
+
+> 引入其他同类组件库并没有发现类似问题,正常导入即可.
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

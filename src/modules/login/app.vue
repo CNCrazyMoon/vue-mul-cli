@@ -2,7 +2,7 @@
   <div id="app">
     <h1>这里是login页面</h1>
     <a href="./index.html">==>index</a>
-    <img src="../../assets/logo.png">
+    <img src="../../assets/images/logo.png">
     <hello></hello>
   </div>
 </template>

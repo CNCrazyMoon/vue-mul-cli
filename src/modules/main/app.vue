@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header :title="pageTitle" noBackBtn="true"></Header>
-    <h1>这里是{{title}}页面</h1>
+    <header-top :title="pageTitle" noBackBtn="true"></header-top>
+    <h1>这里是{{pageTitle}}页面</h1>
     <a :href="href.url">==>{{href.name}}</a>
     <img :src="img">
     <hello></hello>
@@ -11,8 +11,8 @@
 <script>
 import mui from 'mui'
 // 引入mui的css,目前会导致build的时候编译无法通过
-import '@/assets/css/mui.css'
-import Header from '@components/Header'
+// import '@/assets/css/mui.css'
+import HeaderTop from '@components/Header'
 import Hello from '@components/Hello'
 
 export default {
@@ -25,7 +25,7 @@ export default {
         name: 'index'
       },
       // 本地图片如果放在assets中,url-loader会无法识别他.会导致图片无法显示
-      img: './static/logo.png'
+      img: '../static/images/logo.png'
     }
   },
   mounted () {
@@ -33,7 +33,7 @@ export default {
     console.log(mui)
   },
   components: {
-    Header,
+    HeaderTop,
     Hello
   }
 }

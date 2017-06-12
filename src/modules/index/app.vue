@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <h1>index阿萨德客户</h1>
-    <a href="./login.html">==>index</a>
+    <h1>index页面</h1>
+    <a href="./login.html">==>login</a>
     <a href="./main.html">==>main</a>
-    <img src="../../assets/logo.png">
+    <img src="../../assets/images/logo.png">
     <hello></hello>
     <div class="k">
-      asdhjl
+     .vue文件样式测试
     </div>
   </div>
 </template>
