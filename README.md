@@ -29,6 +29,8 @@ npm run build --report
 - 增加页面`titile`的配置,参考`page.conf.js`
 - 支持 `hot-reload`,编辑器保存后浏览器自动刷新
 - 将必需的第三方基础类库挂载到template中
+- 支持build时过滤`.svn`文件夹
+- build后生成与项目名称同名的文件夹,以替换`dist`目录
 
 其他内容后续补充
 
