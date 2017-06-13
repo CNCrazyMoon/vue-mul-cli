@@ -2,7 +2,10 @@
 var path = require('path')
 var fs = require('fs')
 var packageConf = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
-var name = packageConf.name || 'dist';
+
+//config dist name here
+var name = 'dist';
+name = name || packageConf.name || 'dist';
 
 module.exports = {
   build: {
